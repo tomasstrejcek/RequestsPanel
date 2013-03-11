@@ -5,9 +5,9 @@ Installation
  Best way via [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require tomasstrejcek/RequestsPanel:@dev
+$ composer require tomasstrejcek/nette-requests-panel:@dev
 ```
-    
+
 Usage in <strong>BasePresenter</strong>:
 
 

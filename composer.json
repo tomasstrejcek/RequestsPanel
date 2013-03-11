@@ -1,5 +1,5 @@
 {
-    "name": "tomasstrejcek/RequestsPanel",
+    "name": "tomasstrejcek/nette-requests-panel",
     "description": "Nette DebugBar panel, that allows you to view all app requests.",
     "keywords": ["nette", "debugbar", "request"],
     "homepage": "http://pla.nette.org/cs/zprovozneni-prekladace-nettetranslator",
