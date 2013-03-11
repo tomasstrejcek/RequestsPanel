@@ -1,0 +1,27 @@
+{
+    "name": "tomasstrejcek/RequestsPanel",
+    "description": "Nette DebugBar panel, that allows you to view all app requests.",
+    "keywords": ["nette", "debugbar", "request"],
+    "homepage": "http://pla.nette.org/cs/zprovozneni-prekladace-nettetranslator",
+    "authors": [
+        {
+            "name": "jasir",
+            "homepage": "https://github.com/jasir"
+        },
+        {
+            "name": "Radek Simko",
+            "homepage": "http://www.radeksimko.com"
+        },
+        {
+            "name": "Tomáš Strejček",
+            "homepage": "http://tomas-strejcek.cz"
+        }
+    ],
+    "autoload": {
+        "classmap": ["RequestsPanel/"]
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "nette/nette": ">=2.0.0"
+    }
+}
