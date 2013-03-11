@@ -1,5 +1,13 @@
 # RequestsPanel for Nette v2
 
+Installation
+------------
+ Best way via [Composer](http://getcomposer.org/):
+
+```sh
+$ composer require tomasstrejcek/RequestsPanel:@dev
+```
+    
 Usage in <strong>BasePresenter</strong>:
 
 
