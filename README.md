@@ -5,7 +5,7 @@ Installation
  Best way via [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require tomasstrejcek/nette-requests-panel:@dev
+$ composer require tomasstrejcek/nette-requests-panel:dev-master
 ```
 
 Usage in <strong>BasePresenter</strong>:
