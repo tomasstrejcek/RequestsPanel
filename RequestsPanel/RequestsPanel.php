@@ -6,15 +6,16 @@
 namespace Extras\Debug;
 
 use Nette\Object;
-use Nette\Diagnostics\IBarPanel;
 use Nette\Environment;
-use Nette\Diagnostics\Debugger;
-use Nette\Diagnostics\Helpers;
 use Nette\Utils\Html;
 use Nette\Application\Responses\TextResponse;
 use Nette\Templating\FileTemplate;
 use Nette\Templating\IFileTemplate;
 use Nette\Latte\Engine as LatteFilter;
+use Tracy\Dumper;
+use Tracy\Debugger;
+use Tracy\Helpers;
+use Tracy\IBarPanel;
 
 class RequestsPanel extends Object implements IBarPanel {
 
@@ -40,7 +41,7 @@ class RequestsPanel extends Object implements IBarPanel {
 		//register panel only once
 		if (!self::$instance) {
 			self::$instance = new RequestsPanel();
-			Debugger::$bar->addPanel(self::$instance);
+			Debugger::getBar()->addPanel(self::$instance);
 		}
 
 		//but callback for each new presenter
@@ -57,7 +58,7 @@ class RequestsPanel extends Object implements IBarPanel {
 			$saveDepth = Debugger::$maxDepth;
 			Debugger::$maxDepth = $depth;
 		}
-		$s = Helpers::clickableDump($var);
+		$s = Dumper::toHtml($var);
 		if ($label === NULL) {
 			self::$dumps[] = $s;
 		} else {
@@ -147,10 +148,10 @@ class RequestsPanel extends Object implements IBarPanel {
 		$entry['info']['signal']    = $signal;
 		$entry['info']['time']      = number_format((microtime(TRUE) - Debugger::$time) * 1000, 1, '.', ' ');
 
-		$entry['dumps']['HttpRequest']       = Helpers::clickableDump($httpRequest);
-		$entry['dumps']['PresenterRequest']  = Helpers::clickableDump($request);
-		$entry['dumps']['Presenter']         = Helpers::clickableDump($presenter);
-		$entry['dumps']['PresenterResponse'] = Helpers::clickableDump($response);
+		$entry['dumps']['HttpRequest']       = Dumper::toHtml($httpRequest);
+		$entry['dumps']['PresenterRequest']  = Dumper::toHtml($request);
+		$entry['dumps']['Presenter']         = Dumper::toHtml($presenter);
+		$entry['dumps']['PresenterResponse'] = Dumper::toHtml($response);
 
 
 		foreach(self::$dumps as $key => $dump) {
