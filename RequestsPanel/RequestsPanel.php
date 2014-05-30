@@ -6,16 +6,16 @@
 namespace Extras\Debug;
 
 use Nette\Object;
-use Nette\Diagnostics\IBarPanel;
 use Nette\Environment;
-use Nette\Diagnostics\Debugger;
-use Nette\Diagnostics\Helpers;
 use Nette\Utils\Html;
 use Nette\Application\Responses\TextResponse;
 use Nette\Templating\FileTemplate;
 use Nette\Templating\IFileTemplate;
 use Nette\Latte\Engine as LatteFilter;
-use Nette\Diagnostics\Dumper;
+use Tracy\Dumper;
+use Tracy\Debugger;
+use Tracy\Helpers;
+use Tracy\IBarPanel;
 
 class RequestsPanel extends Object implements IBarPanel {
 
@@ -41,7 +41,7 @@ class RequestsPanel extends Object implements IBarPanel {
 		//register panel only once
 		if (!self::$instance) {
 			self::$instance = new RequestsPanel();
-			Debugger::$bar->addPanel(self::$instance);
+			Debugger::getBar()->addPanel(self::$instance);
 		}
 
 		//but callback for each new presenter
